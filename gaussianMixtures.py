@@ -44,6 +44,7 @@ def saveData(filename,data,means,sigs,w,xtest,ytest,numberOfGaussians):
 	
 	print('done')
 
+    
 def main(filename):
 
 	data = importData(filename)
@@ -64,7 +65,7 @@ def main(filename):
 
 	for g in range(maxGaussians):
 
-		GMM = mix.GaussianMixture(n_components = g+1)
+		GMM = mix.GaussianMixture(n_components = g+1, init_params = 'random',n_init=10)
 
 		GMM = GMM.fit(data)
 
